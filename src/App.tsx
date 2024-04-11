@@ -35,10 +35,11 @@ export default function App() {
 					<div className='todo-list'>
 						{todos.map((todo) => (
 							<div className='todo-item'>
-								<Checkbox checked={todo.isComplete ? true : false} />
-								<p className={todo.isComplete ? "line-through" : "default"}>
-									{todo.title}
-								</p>
+								<Checkbox
+									checked={todo.isComplete}
+									onChange={(event) => {}}
+									label={todo.title}
+								/>
 							</div>
 						))}
 					</div>
