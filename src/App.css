@@ -1,0 +1,26 @@
+.todo-container {
+	width: 40%;
+	margin: 10rem auto;
+}
+
+.todo-item {
+	display: flex;
+	flex-flow: row;
+	align-items: center;
+	/* justify-content: center; */
+	gap: 1rem;
+}
+
+.line-through {
+	text-decoration: line-through;
+}
+
+.default {
+	text-decoration: solid;
+}
+
+.header,
+.add-todo,
+.todo-list {
+	margin-bottom: 1rem;
+}
