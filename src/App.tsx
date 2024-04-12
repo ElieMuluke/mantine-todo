@@ -1,8 +1,9 @@
 import "@mantine/core/styles.css";
-import { Checkbox, MantineProvider, Paper, Title } from "@mantine/core";
+import { MantineProvider, Paper } from "@mantine/core";
 import { theme } from "./theme";
 import { InputWithButton } from "./components/AddToDoInput";
 import "./App.css";
+import { Header } from "./components/header/Header";
 
 export default function App() {
 	const todos = [
@@ -13,7 +14,7 @@ export default function App() {
 		},
 		{
 			id: 1,
-			title: "todo1",
+			title: "todo2",
 			isComplete: true,
 		},
 		{
@@ -24,22 +25,27 @@ export default function App() {
 	];
 	return (
 		<MantineProvider theme={theme}>
+			<Header />
 			<div className='todo-container'>
 				<Paper shadow='lg' radius='md' p='xl'>
-					<div className='header'>
-						<Title order={1}>TODO</Title>
-					</div>
 					<div className='add-todo'>
 						<InputWithButton />
 					</div>
 					<div className='todo-list'>
 						{todos.map((todo) => (
-							<div className='todo-item'>
-								<Checkbox
-									checked={todo.isComplete}
-									onChange={(event) => {}}
-									label={todo.title}
+							<div key={todo.id} className='todo-item'>
+								<input
+									id={`${todo.id}`}
+									type='checkbox'
+									name='todoItem'
+									value={todo.id}
+									defaultChecked={todo.isComplete ? true : false}
+									onChange={(e) => {
+										console.log(e.target.checked);
+									}}
 								/>
+								<label htmlFor={`${todo.id}`}>{todo.title}</label>
+								<br></br>
 							</div>
 						))}
 					</div>
